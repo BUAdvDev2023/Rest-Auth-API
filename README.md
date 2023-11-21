@@ -45,7 +45,7 @@ This is running on port 8080:80
 
 We have created a Postman collection that enables developers and testers to efficiently interact with our API endpoints, streamlining the testing and development process.
 
-If needed please send a message to s5219967@bournemouth.ac.uk and I will add you to the workspace
+If need it please send a message to s5219967@bournemouth.ac.uk and I will add you to the workspace
 
 # Use this command to reset docker
 
