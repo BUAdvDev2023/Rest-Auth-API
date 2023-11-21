@@ -2,7 +2,7 @@
 
 | MAINTAINER | Jesus Pombo | Jesus-15 | s5219967@bournemouth.ac.uk |
 
-This module was a decision to create it as a separate module from the customer-storefront-module for other teams to use.
+This module was created as a separate module from the customer-storefront-module for other teams to use.
 
 This module introduces comprehensive CRUD (Create, Read, Update, Delete) operations for user authentication in the RESTful API. The goal is to enhance the authentication system by allowing users to manage their accounts through standard HTTP.
 
