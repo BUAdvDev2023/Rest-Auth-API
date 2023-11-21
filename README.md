@@ -2,7 +2,9 @@
 
 | MAINTAINER | Jesus Pombo | Jesus-15 | s5219967@bournemouth.ac.uk |
 
-This module introduces comprehensive CRUD (Create, Read, Update, Delete) operations for user authentication in the RESTful API. The goal is to enhance the authentication system by allowing users to manage their accounts through standard HTTP methods.
+This module was a decision to create it as a separate module from the customer-storefront-module for other teams to use.
+
+This module introduces comprehensive CRUD (Create, Read, Update, Delete) operations for user authentication in the RESTful API. The goal is to enhance the authentication system by allowing users to manage their accounts through standard HTTP.
 
 Implementing the `/api/users` endpoint for creating new user accounts using a POST request.
 Added `/api/login` endpoint for user authentication through a POST request.
@@ -37,7 +39,7 @@ Just need to run the following command
 
 # Use PHPMyAdmin for Visualization
 
-The objective of this is to use PHPMyAdmin as a Docker image into our project to facilitate database visualization and management.
+This aims to use PHPMyAdmin as a Docker image in our project to facilitate database visualization and management.
 
 This is running on port 8080:80
 
