@@ -1,0 +1,16 @@
+Flask
+sqlalchemy
+flask-Cors
+requests
+mysql-connector-python
+passlib
+click
+itsdangerous
+MarkupSafe
+Werkzeug
+Flask-SQLAlchemy
+MarkupSafe
+pymysql
+functions
+gunicorn
+uwsgi
