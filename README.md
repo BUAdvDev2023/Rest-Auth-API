@@ -37,7 +37,7 @@ Just need to run the following command
 
 # Use PHPMyAdmin for Visualization
 
-The objective of this issue is to integrate PHPMyAdmin as a Docker image into our project to facilitate database visualization and management.
+The objective of this is to use PHPMyAdmin as a Docker image into our project to facilitate database visualization and management.
 
 This is running on port 8080:80
 
