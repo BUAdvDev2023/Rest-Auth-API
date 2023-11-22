@@ -1,0 +1,31 @@
+version: "3"
+services:
+
+  db:
+    image: ghcr.io/buadvdev2023/rest-auth-api-db:main
+    restart: always
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PORT: 3306
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:root
+    networks:
+      - mynetwork
+   
+  api:
+    image: ghcr.io/buadvdev2023/rest-auth-api:main
+    ports:
+      - "6525:6525"
+    depends_on:
+      - db
+    restart: always
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
