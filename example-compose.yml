@@ -2,7 +2,7 @@ version: "3"
 services:
 
   db:
-    image: ghcr.io/buadvdev2023/rest-auth-api-db:main
+    image: mysql:latest
     restart: always
     environment:
       MYSQL_DATABASE: db
