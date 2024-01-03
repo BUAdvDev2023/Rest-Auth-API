@@ -130,6 +130,55 @@ def delete_user(id):
         return jsonify({'result': True}), 200
     except Exception as e:
         return jsonify({'error': f'An error occurred while deleting user: {str(e)}'}), 500
+        
+        
+@app.route('/api/users/<string:username>', methods=['GET'])
+def get_user_username(username):
+    try:
+        user = User.query.filter_by(username=username).first()
+        if not user:
+            return jsonify({'error': 'User not found'}), 404
+        return jsonify({'username': user.username})
+    except Exception as e:
+        return jsonify({'error': f'An error occurred while fetching user: {str(e)}'}), 500
+    
+@app.route('/api/users/<string:username>', methods=['PUT'])
+def update_user_username(username):
+    try:
+        user = User.query.filter_by(username=username).first()
+        if not user:
+            return jsonify({'error': 'User not found'}), 404
+
+        data = request.json
+        update_fields = {
+            'email': data.get('email', user.email),
+            'full_name': data.get('full_name', user.full_name),
+            'address': data.get('address', user.address),
+            'phone_number': data.get('phone_number', user.phone_number),
+            'date_of_birth': data.get('date_of_birth', user.date_of_birth),
+            'profile_picture': data.get('profile_picture', user.profile_picture),
+        }
+
+        user.update(update_fields)
+
+        db.session.commit()
+        return jsonify({'username': user.username}), 200
+    except Exception as e:
+        return jsonify({'error': f'An error occurred while updating user: {str(e)}'}), 500
+
+
+@app.route('/api/users/<string:username>', methods=['DELETE'])
+def delete_user_username(username):
+    try:
+        user = User.query.filter_by(username=username).first()
+        if not user:
+            return jsonify({'error': 'User not found'}), 404
+
+        db.session.delete(user)
+        db.session.commit()
+        return jsonify({'result': True}), 200
+    except Exception as e:
+        return jsonify({'error': f'An error occurred while deleting user: {str(e)}'}), 500
 
 
 if __name__ == '__main__':
