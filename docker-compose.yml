@@ -2,19 +2,22 @@ version: "3"
 services:
 
   db:
-    image: mysql:latest
+    build: ./db
     restart: always
+    ports:
+      - "3307:3306"
     environment:
       MYSQL_DATABASE: db
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
       MYSQL_PORT: 3306
-    ports:
-      - "3307:3306"
-    volumes:
-      - ./db:/docker-entrypoint-initdb.d/:root
+    healthcheck:
+      test: "mysql -u root -proot db -e 'select 1;'"
+      interval: 5s
+      retries: 250
     networks:
       - mynetwork
+
 
   admin:
     image: phpmyadmin:latest
@@ -27,7 +30,8 @@ services:
     ports:
       - "8080:80"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     networks:
       - mynetwork
    
@@ -38,7 +42,8 @@ services:
     ports:
       - "6525:6525"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     restart: always
     networks:
       - mynetwork
